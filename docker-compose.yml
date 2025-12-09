@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  next-app:
+    build:
+      context: ./next-app
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    # Helpful for local testing with live reload
+    # volumes:
+    #   - ./next-app:/app
+    #   - /app/node_modules
+    restart: unless-stopped
+
+# Can add more services here if needed
+# Like a database or Redis for caching
